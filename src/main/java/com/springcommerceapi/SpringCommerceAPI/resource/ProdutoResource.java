@@ -1,34 +1,36 @@
 package com.springcommerceapi.SpringCommerceAPI.resource;
-
-
 import com.springcommerceapi.SpringCommerceAPI.model.Produto;
+import com.springcommerceapi.SpringCommerceAPI.service.ProdutoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
+@RestController
+@RequestMapping("/produtos")
 public class ProdutoResource {
 
-	public Produto cadastrarProduto() {
-		return null;
+	@Autowired
+	ProdutoService produtoService;
+
+	public ProdutoResource(ProdutoService produtoService) {
+		this.produtoService = produtoService;
 	}
 
-	public Produto recuperarProduto() {
-		return null;
+
+	@RequestMapping("/teste")
+	@ResponseBody
+	public String ola(){
+		return "Hello world";
 	}
 
-	public List<Produto> recuperarTodosprodutos() {
-		return null;
-	}
 
-	public Produto atualizarProduto() {
-		return null;
-	}
-
-	public Produto deletarProduto() {
-		return null;
-	}
-
-	public void alterarQuantidadeProduto() {
-
+	@PostMapping("cadastrar")
+	@ResponseBody
+	public String cadastraProduto(Produto produto){
+		produtoService.salvarProduto(produto);
+		return "produto salvo";
 	}
 
 }
