@@ -1,6 +1,7 @@
 package com.springcommerceapi.SpringCommerceAPI.resource;
 
 import com.springcommerceapi.SpringCommerceAPI.model.Pedido;
+import com.springcommerceapi.SpringCommerceAPI.model.Status;
 
 public class PedidoResource {
 
