@@ -1,6 +1,6 @@
 package com.springcommerceapi.SpringCommerceAPI.service;
 
-import com.springcommerceapi.SpringCommerceAPI.repository.Produto;
+import com.springcommerceapi.SpringCommerceAPI.model.Produto;
 
 import java.util.List;
 

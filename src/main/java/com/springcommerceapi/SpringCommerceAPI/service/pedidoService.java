@@ -1,6 +1,6 @@
 package com.springcommerceapi.SpringCommerceAPI.service;
 
-import com.springcommerceapi.SpringCommerceAPI.repository.ItemPedido;
+import com.springcommerceapi.SpringCommerceAPI.model.ItemPedido;
 
 import java.util.List;
 
