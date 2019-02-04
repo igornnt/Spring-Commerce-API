@@ -1,6 +1,6 @@
-package com.springcommerceapi.SpringCommerceAPI.repository;
+package com.springcommerceapi.SpringCommerceAPI.service;
 
-public class ItemPedidoRepository {
+public class ItemPedidoService {
 
 	public boolean verificarDisponibilidade() {
 		return false;
