@@ -1,23 +1,33 @@
 package com.springcommerceapi.SpringCommerceAPI.resource;
 
 import com.springcommerceapi.SpringCommerceAPI.model.Pedido;
-import com.springcommerceapi.SpringCommerceAPI.model.Status;
+import com.springcommerceapi.SpringCommerceAPI.service.PedidoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("/pedido")
 public class PedidoResource {
 
-	public void adicionarItem() {
+	@Autowired
+	PedidoService pedidoService;
 
+	public PedidoResource(PedidoService pedidoService) {
+		this.pedidoService = pedidoService;
 	}
 
-	public Pedido criarPedido() {
-		return null;
+	@PostMapping("/cadastrar")
+	@ResponseBody
+	public String cadastrarPedido(Pedido pedido) {
+		pedidoService.salvarPedido(pedido);
+		return ("pedido salvo");
 	}
 
 	public Pedido buscarPedido() {
 		return null;
 	}
 
-	public Status alterarStatusPedido() {
+	public String alterarStatusPedido() {
 		return null;
 	}
 
