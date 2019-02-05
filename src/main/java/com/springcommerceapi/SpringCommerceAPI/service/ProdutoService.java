@@ -30,6 +30,18 @@ public class ProdutoService {
              return "produto deletado com sucesso!";
          }
 	}
+	
+	public Produto buscarProdutoId(Long id){
+	     Produto produto = iProdutoRepository.findById(id).orElse(new Produto());
+	     if(produto.getId() == null){
+	         return produto;
+       }else {
+           
+           return produto;
+       }
+	}
+	
+	
 
 
 
