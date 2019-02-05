@@ -35,5 +35,12 @@ public class ProdutoResource {
 	public String deletarProduto(@PathVariable Long id){
 		return produtoService.deletarProduto(id);
 	}
+	
+	@GetMapping("/buscarproduto/{id}")
+	@ResponseBody
+	public Produto buscarProdutoId(@PathVariable Long id){
+	    return produtoService.buscarProdutoId(id);
+	            
+	}
 
 }
