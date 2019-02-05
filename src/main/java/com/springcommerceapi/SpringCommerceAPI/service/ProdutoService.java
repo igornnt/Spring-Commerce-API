@@ -5,6 +5,8 @@ import com.springcommerceapi.SpringCommerceAPI.repository.IProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ProdutoService {
 
@@ -18,6 +20,18 @@ public class ProdutoService {
 	public void salvarProduto(Produto produto){
 		iProdutoRepository.save(produto);
 	}
+
+	public String deletarProduto(Long id){
+	     Produto produto = iProdutoRepository.findById(id).orElse(new Produto());
+	     if(produto.getId() == null){
+	         return "produto não encontrado!";
+         }else {
+             iProdutoRepository.delete(produto);
+             return "produto deletado com sucesso!";
+         }
+	}
+
+
 
 
 }

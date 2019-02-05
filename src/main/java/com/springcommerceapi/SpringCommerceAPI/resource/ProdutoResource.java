@@ -2,10 +2,7 @@ package com.springcommerceapi.SpringCommerceAPI.resource;
 import com.springcommerceapi.SpringCommerceAPI.model.Produto;
 import com.springcommerceapi.SpringCommerceAPI.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/produtos")
@@ -31,6 +28,12 @@ public class ProdutoResource {
 	public String cadastraProduto(Produto produto){
 		produtoService.salvarProduto(produto);
 		return "produto salvo";
+	}
+
+	@PostMapping("deletar/{id}")
+	@ResponseBody
+	public String deletarProduto(@PathVariable Long id){
+		return produtoService.deletarProduto(id);
 	}
 
 }

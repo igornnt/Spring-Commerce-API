@@ -25,6 +25,10 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 
+	public Produto(){
+
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -63,5 +67,16 @@ public class Produto {
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
+	}
+
+	@Override
+	public String toString() {
+		return "Produto{" +
+				"id=" + id +
+				", nome='" + nome + '\'' +
+				", descricao='" + descricao + '\'' +
+				", valor=" + valor +
+				", quantidade=" + quantidade +
+				'}';
 	}
 }
