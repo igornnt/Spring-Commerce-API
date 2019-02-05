@@ -23,12 +23,4 @@ public class PedidoResource {
 		return ("pedido salvo");
 	}
 
-	public Pedido buscarPedido() {
-		return null;
-	}
-
-	public String alterarStatusPedido() {
-		return null;
-	}
-
 }

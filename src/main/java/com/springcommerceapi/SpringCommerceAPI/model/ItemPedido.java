@@ -1,76 +1,67 @@
 package com.springcommerceapi.SpringCommerceAPI.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.List;
-
-import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name="itemPedido")
-public class ItemPedido implements Serializable {
+public class ItemPedido{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idItem;
-	private int produto;
-	private Pedido pedido;
+	private Long produto;
+	private Long pedido;
 	private int quantidade;
 	private double valor;
 
-	public ItemPedido(int produto, Pedido pedido, int quantidade, double valor) {
-		this.produto = produto;
-		this.pedido = pedido;
-		this.quantidade = quantidade;
-		this.valor = valor;
+	public ItemPedido(){
+
+    }
+
+	public ItemPedido(Long produto, Long pedido, int quantidade, double valor) {
+		this.setProduto(produto);
+		this.setPedido(pedido);
+		this.setQuantidade(quantidade);
+		this.setValor(valor);
 	}
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
+    public Long getIdItem() {
+        return idItem;
+    }
 
-	@Column(name = "idItem", unique = true, nullable = false)
-	public Long getIdItem() {
-		return this.idItem;
-	}
+    public void setIdItem(Long idItem) {
+        this.idItem = idItem;
+    }
 
-	public void setIdItem(Long idItem) {
-		this.idItem = idItem;
-	}
+    public Long getProduto() {
+        return produto;
+    }
 
-	@Column(name = "produto", nullable = false)
-	public Integer getProduto() {
-		return this.produto;
-	}
+    public void setProduto(Long produto) {
+        this.produto = produto;
+    }
 
-	public void setProduto(int produto) {
-		this.produto = produto;
-	}
+    public Long getPedido() {
+        return pedido;
+    }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idPedido", nullable = false)
-	public Pedido getPedido() {
-		return this.pedido;
-	}
+    public void setPedido(Long pedido) {
+        this.pedido = pedido;
+    }
 
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
-	}
+    public int getQuantidade() {
+        return quantidade;
+    }
 
-	@Column(name = "quantidade", nullable = false)
-	public Integer getQuantidade() {
-		return this.quantidade;
-	}
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
 
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
+    public double getValor() {
+        return valor;
+    }
 
-	@Column(name = "valor", nullable = false, precision = 10)
-	public double getValor() {
-		return this.valor;
-	}
-
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
-
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
 }
