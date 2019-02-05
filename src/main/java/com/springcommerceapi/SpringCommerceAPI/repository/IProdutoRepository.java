@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
-public interface IProdutoRepository extends JpaRepository<Produto,Long> {
+public interface IProdutoRepository extends CrudRepository<Produto,Long> {
 
     Produto findByNome(String nome);
 
