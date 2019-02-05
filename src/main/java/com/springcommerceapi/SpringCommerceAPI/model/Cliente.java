@@ -57,6 +57,9 @@ public class Cliente {
 		this.complemento = complemento;
 	}
 
+	public Cliente() {
+	}
+
 	public String getNome() {
 		return nome;
 	}

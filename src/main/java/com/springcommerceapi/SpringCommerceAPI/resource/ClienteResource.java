@@ -6,10 +6,7 @@ import com.springcommerceapi.SpringCommerceAPI.service.ClienteService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/clientes")
@@ -28,10 +25,12 @@ public class ClienteResource {
 		return "Cliente Cadastrado";
 	}
 
-	public Cliente recuperarCliente() {
-		return null;
-	}
+	@GetMapping("/buscar/")
+	@ResponseBody
+	public Cliente recuperarCliente(@RequestParam(value="nome")String nome) {
+		return clienteService.recuperarCliente(nome);
 
+	}
 	public List<Cliente> recuperarTodosClientes() {
 		return null;
 	}
