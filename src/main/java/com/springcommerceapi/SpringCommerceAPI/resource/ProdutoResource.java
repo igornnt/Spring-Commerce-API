@@ -43,4 +43,10 @@ public class ProdutoResource {
 	            
 	}
 
+	@GetMapping("/buscarproduto/")
+	@ResponseBody
+	public Produto buscarProdutoNome(@RequestParam(value="nome") String nome){
+		return produtoService.buscarProdutoNome(nome);
+	}
+
 }
