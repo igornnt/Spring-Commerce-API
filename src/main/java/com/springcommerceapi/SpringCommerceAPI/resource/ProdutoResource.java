@@ -30,7 +30,7 @@ public class ProdutoResource {
 		return "produto salvo";
 	}
 
-	@PostMapping("deletar/{id}")
+	@DeleteMapping("deletar/{id}")
 	@ResponseBody
 	public String deletarProduto(@PathVariable Long id){
 		return produtoService.deletarProduto(id);
