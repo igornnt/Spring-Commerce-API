@@ -18,16 +18,14 @@ public class Pedido {
 	private String status;
 	private double valorTotal;
 
-	public Pedido(){
-
-	}
-
-	public Pedido(Long idPedido, Long cliente, Date dataPedido, String status, double valorTotal) {
-		this.setIdPedido(idPedido);
-		this.setDataPedido(dataPedido);
+	public Pedido(Long cliente, String status, double valorTotal) {
 		this.setValorTotal(valorTotal);
 		this.setStatus(status);
 		this.setCliente(cliente);
+	}
+
+	public Pedido(){
+
 	}
 
 	public Long getIdPedido() {

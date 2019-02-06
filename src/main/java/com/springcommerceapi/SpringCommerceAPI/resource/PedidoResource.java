@@ -3,6 +3,7 @@ package com.springcommerceapi.SpringCommerceAPI.resource;
 import com.springcommerceapi.SpringCommerceAPI.model.Pedido;
 import com.springcommerceapi.SpringCommerceAPI.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,9 +19,8 @@ public class PedidoResource {
 		this.pedidoService = pedidoService;
 	}
 
-	@PostMapping("/cadastrar")
-	@ResponseBody
-	public Pedido cadastrarPedido(Pedido pedido) {
+	@PostMapping(value = "/cadastrar", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Pedido cadastrarPedido(@RequestBody Pedido pedido) {
 		pedidoService.salvarPedido(pedido);
 		return pedido;
 	}
