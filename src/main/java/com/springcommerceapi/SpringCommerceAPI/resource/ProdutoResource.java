@@ -2,7 +2,6 @@ package com.springcommerceapi.SpringCommerceAPI.resource;
 import com.springcommerceapi.SpringCommerceAPI.model.Produto;
 import com.springcommerceapi.SpringCommerceAPI.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
