@@ -27,10 +27,18 @@ public class ClienteResource {
 
 	@GetMapping("/buscar/")
 	@ResponseBody
-	public Cliente recuperarCliente(@RequestParam(value="nome")String nome) {
-		return clienteService.recuperarCliente(nome);
+	public Cliente recuperarClienteNome(@RequestParam(value="nome")String nome) {
+		return clienteService.recuperarClienteNome(nome);
 
 	}
+
+	@GetMapping("/buscar/{id}")
+	@ResponseBody
+	public Cliente recuperarClienteId(@PathVariable Long id) {
+		return clienteService.recuperarClienteId(id);
+
+	}
+
 	public List<Cliente> recuperarTodosClientes() {
 		return null;
 	}

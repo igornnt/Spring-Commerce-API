@@ -20,7 +20,11 @@ public class ClienteService {
 		clienteRepository.save(cliente);
 	}
 
-	public Cliente recuperarCliente(String nome) {
+	public Cliente recuperarClienteNome(String nome) {
 		return clienteRepository.findByNomeIgnoreCase(nome);
+	}
+
+	public Cliente recuperarClienteId(Long id) {
+		return clienteRepository.findById(id).orElse(new Cliente());
 	}
 }
