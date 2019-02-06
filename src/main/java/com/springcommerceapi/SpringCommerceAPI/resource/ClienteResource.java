@@ -31,6 +31,13 @@ public class ClienteResource {
 		return clienteService.recuperarCliente(nome);
 
 	}
+
+	@DeleteMapping("/deletar/{id}")
+    @ResponseBody
+    public String deletarCliente(@PathVariable Long id) {
+	    return clienteService.deletarCliente(id);
+    }
+
 	public List<Cliente> recuperarTodosClientes() {
 		return null;
 	}
@@ -39,8 +46,6 @@ public class ClienteResource {
 		return null;
 	}
 
-	public Cliente deletarCliente() {
-		return null;
-	}
+
 
 }

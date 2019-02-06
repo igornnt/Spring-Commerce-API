@@ -6,8 +6,10 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.springcommerceapi.SpringCommerceAPI.model.Cliente;
 
+import java.util.Optional;
+
 @Transactional
 public interface ClienteRepository extends CrudRepository<Cliente, Long>{
 
-        public Cliente findByNomeIgnoreCase(String nome);
+         Cliente findByNomeIgnoreCase(String nome);
 }

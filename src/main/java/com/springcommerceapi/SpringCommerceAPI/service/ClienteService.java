@@ -23,4 +23,16 @@ public class ClienteService {
 	public Cliente recuperarCliente(String nome) {
 		return clienteRepository.findByNomeIgnoreCase(nome);
 	}
+
+    public String deletarCliente(Long id) {
+
+	    Cliente cliente = clienteRepository.findById(id).orElse(new Cliente());
+
+	    if(cliente.getId() == null){
+            return "Não existe esse cliente!";
+        }else{
+            clienteRepository.deleteById(id);
+            return "Cliente foi deletado com sucesso!";
+        }
+    }
 }
