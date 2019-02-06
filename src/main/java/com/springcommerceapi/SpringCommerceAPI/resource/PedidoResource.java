@@ -20,9 +20,9 @@ public class PedidoResource {
 
 	@PostMapping("/cadastrar")
 	@ResponseBody
-	public String cadastrarPedido(Pedido pedido) {
+	public Pedido cadastrarPedido(Pedido pedido) {
 		pedidoService.salvarPedido(pedido);
-		return ("pedido salvo");
+		return pedido;
 	}
 
 	@GetMapping("/buscarpedido/{id}")

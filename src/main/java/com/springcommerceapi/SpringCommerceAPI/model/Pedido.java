@@ -13,16 +13,16 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idPedido;
+	private Long cliente;
 	private Date dataPedido;
 	private String status;
 	private double valorTotal;
-	private long cliente;
 
 	public Pedido(){
 
 	}
 
-	public Pedido(Long idPedido, Date dataPedido, String status, double valorTotal, long cliente) {
+	public Pedido(Long idPedido, Long cliente, Date dataPedido, String status, double valorTotal) {
 		this.setIdPedido(idPedido);
 		this.setDataPedido(dataPedido);
 		this.setValorTotal(valorTotal);
@@ -62,11 +62,11 @@ public class Pedido {
 		this.valorTotal = valorTotal;
 	}
 
-	public long getCliente() {
+	public Long getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(long cliente) {
+	public void setCliente(Long cliente) {
 		this.cliente = cliente;
 	}
 }
