@@ -2,6 +2,7 @@ package com.springcommerceapi.SpringCommerceAPI.resource;
 import com.springcommerceapi.SpringCommerceAPI.model.Produto;
 import com.springcommerceapi.SpringCommerceAPI.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,34 +24,33 @@ public class ProdutoResource {
 	}
 
 
-	@PostMapping("/cadastrar")
-	@ResponseBody
-	public String cadastraProduto(Produto produto){
+	@PostMapping(value = "/cadastrar", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String cadastraProduto(@RequestBody Produto produto){
 		produtoService.salvarProduto(produto);
 		return "produto salvo";
 	}
 
-	@DeleteMapping("/deletar/{id}")
-	@ResponseBody
+	@DeleteMapping(value = "/deletar/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	
 	public String deletarProduto(@PathVariable Long id){
 		return produtoService.deletarProduto(id);
 	}
 
 
-	@GetMapping("/buscarproduto/{id}")
+	@GetMapping(value = "/buscarproduto/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public Produto buscarProdutoId(@PathVariable Long id){
 	    return produtoService.buscarProdutoId(id);
 	            
 	}
 
-	@GetMapping("/buscarproduto/")
+	@GetMapping(value = "/buscarproduto/", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public Produto buscarProdutoNome(@RequestParam(value="nome") String nome){
 		return produtoService.buscarProdutoNome(nome);
 	}
 
-	@PostMapping("/alterarproduto/{id}/")
+	@PostMapping(value = "/alterarproduto/{id}/", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Produto atualizarProduto (@PathVariable Long id, Produto produto){
         produtoService.alterarProduto(id, produto);
