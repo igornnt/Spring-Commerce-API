@@ -47,6 +47,14 @@ public class ProdutoService {
 	    return produto;
     }
 
+    public Produto alterarProduto(Long id, Produto produto){
+		Produto produto1 = iProdutoRepository.findById(id).orElse(new Produto());
+		produto.setId(produto1.getId());
+		iProdutoRepository.save(produto);
+		return null;
+
+	}
+
 	
 	
 

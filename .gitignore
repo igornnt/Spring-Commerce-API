@@ -23,3 +23,5 @@
 /nbdist/
 /.nb-gradle/
 /build/
+
+src/main/java/com/springcommerceapi/SpringCommerceAPI/model/WebSecurityConfig\.java
