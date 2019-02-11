@@ -1,11 +1,13 @@
 package com.springcommerceapi.SpringCommerceAPI.resource;
 
 import com.springcommerceapi.SpringCommerceAPI.model.Pedido;
+import com.springcommerceapi.SpringCommerceAPI.service.ItemPedidoService;
 import com.springcommerceapi.SpringCommerceAPI.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,9 +17,8 @@ public class PedidoResource {
 	@Autowired
 	PedidoService pedidoService;
 
-	public PedidoResource(PedidoService pedidoService) {
-		this.pedidoService = pedidoService;
-	}
+	@Autowired
+	ItemPedidoService itemPedidoService;
 
 	@PostMapping(value = "/cadastrar", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Pedido cadastrarPedido(@RequestBody Pedido pedido) {

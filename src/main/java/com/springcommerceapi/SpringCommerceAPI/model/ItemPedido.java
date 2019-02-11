@@ -7,10 +7,15 @@ import javax.persistence.*;
 public class ItemPedido{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idItem;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idItem;
+
 	private Long produto;
-	private Long pedido;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="pedido_id", nullable=false)
+	private Pedido pedido;
+
 	private int quantidade;
 	private double valor;
 
@@ -18,7 +23,7 @@ public class ItemPedido{
 
     }
 
-	public ItemPedido(Long produto, Long pedido, int quantidade, double valor) {
+	public ItemPedido(Long produto, Pedido pedido, int quantidade, double valor) {
 		this.setProduto(produto);
 		this.setPedido(pedido);
 		this.setQuantidade(quantidade);
@@ -41,11 +46,11 @@ public class ItemPedido{
         this.produto = produto;
     }
 
-    public Long getPedido() {
+    public Pedido getPedido() {
         return pedido;
     }
 
-    public void setPedido(Long pedido) {
+    public void setPedido(Pedido pedido) {
         this.pedido = pedido;
     }
 
@@ -64,4 +69,5 @@ public class ItemPedido{
     public void setValor(double valor) {
         this.valor = valor;
     }
+
 }

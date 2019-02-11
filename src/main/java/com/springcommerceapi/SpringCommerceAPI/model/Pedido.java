@@ -1,27 +1,34 @@
 package com.springcommerceapi.SpringCommerceAPI.model;
 
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="pedido")
 public class Pedido {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPedido;
+
+	//@OneToOne(cascade = CascadeType.ALL)
 	private Long cliente;
+
 	private Date dataPedido;
 	private String status;
 	private double valorTotal;
 
-	public Pedido(Long cliente, String status, double valorTotal) {
+	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY)
+	private Set<ItemPedido> itemPedido;
+
+	public Pedido(Long cliente, String status, double valorTotal, Set<ItemPedido> itemPedido) {
 		this.setValorTotal(valorTotal);
 		this.setStatus(status);
 		this.setCliente(cliente);
+		this.setItemPedido(itemPedido);
 	}
 
 	public Pedido(){
@@ -66,5 +73,13 @@ public class Pedido {
 
 	public void setCliente(Long cliente) {
 		this.cliente = cliente;
+	}
+
+	public Set<ItemPedido> getItemPedido() {
+		return itemPedido;
+	}
+
+	public void setItemPedido(Set<ItemPedido> itemPedido) {
+		this.itemPedido = itemPedido;
 	}
 }
